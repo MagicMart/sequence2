@@ -1,0 +1,17 @@
+{
+    "name": "sequence-two",
+    "version": "1.0.0",
+    "description": "A memory game",
+    "main": "index.js",
+    "author": "Martin Tudor",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "clean": "rm dist/*",
+        "dev": "parcel index.html",
+        "build": "parcel build index.html"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.12.3"
+    }
+}
