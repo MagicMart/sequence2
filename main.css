@@ -7,9 +7,9 @@ html {
     box-sizing: inherit;
 }
 
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -21,9 +21,17 @@ body {
     background: #e5e5cf;
 }
 
+h1 {
+    text-align: center;
+}
+
 .container {
     width: 300px;
     margin: 0 auto;
+}
+
+.score-panel {
+    text-align: center;
 }
 
 .buttons {
