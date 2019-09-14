@@ -1,9 +1,9 @@
 import {generateColArr, playSequence, userInput} from "./helpers";
 import {setLives, setScore} from "./scorePanel";
+import {startButton} from "./startButton";
 
 const buttons = document.querySelector(".buttons");
 const body = document.querySelector("body");
-const start = document.querySelector(".start");
 
 function clickButton(e) {
     const {style} = e.target;
@@ -14,14 +14,6 @@ function clickButton(e) {
     }
 }
 
-setLives();
-setScore();
-
 buttons.addEventListener("click", clickButton);
-start.addEventListener(
-    "click",
-    () => playSequence(generateColArr(5)).then(userInput),
-    {
-        once: true
-    }
-);
+
+startButton(true);

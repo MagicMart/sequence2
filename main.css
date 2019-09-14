@@ -46,6 +46,20 @@ h1 {
     border: 5px solid white;
 }
 
+.start-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.start {
+    margin: 10px;
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #008000;
+    color: #e5e5cf;
+}
+
 .red {
     background: #ff0000;
 }

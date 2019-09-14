@@ -1,4 +1,5 @@
 import {setScore, setLives} from "./scorePanel";
+import {startButton} from "./startButton";
 
 export function generateColArr(len = 0, arr = []) {
     const colors = ["red", "green", "blue", "yellow"];
@@ -39,19 +40,13 @@ export function userInput(arr = []) {
             if (checkArray(arr.slice(0, input.length), input) === false) {
                 setLives(-1);
                 buttons.removeEventListener("click", userclickButton);
-                setTimeout(
-                    () => playSequence(generateColArr(5)).then(userInput),
-                    3000
-                );
+                startButton();
             }
         }
         if (input.length === arr.length) {
             setScore(5);
             buttons.removeEventListener("click", userclickButton);
-            setTimeout(
-                () => playSequence(generateColArr(5)).then(userInput),
-                500
-            );
+            startButton();
         }
     }
 
