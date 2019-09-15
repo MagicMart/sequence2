@@ -29,7 +29,7 @@ export function playSequence(arr: Array<string>) {
     });
 }
 
-function checkArray(arr = [], userArr = []) {
+function checkArray(arr, userArr) {
     return arr.toString() === userArr.toString();
 }
 
@@ -37,7 +37,6 @@ export function userInput(arr: Array<string>) {
     const buttons = window.document.querySelector(".buttons");
     let input = [];
     function userclickButton(e) {
-        const {style} = e.target;
         if (e.target && e.target.nodeName === "BUTTON") {
             input = [...input, e.target.classList[1]];
             if (checkArray(arr.slice(0, input.length), input) === false) {
