@@ -21,7 +21,10 @@ body {
     background: #e5e5cf;
 }
 
-h1 {
+.header {
+    padding: 10px;
+    background: #151524;
+    color: #e5e5cf;
     text-align: center;
 }
 
@@ -32,6 +35,10 @@ h1 {
 
 .score-panel {
     text-align: center;
+    padding: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: monospace;
 }
 
 .buttons {
