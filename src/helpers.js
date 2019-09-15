@@ -1,7 +1,10 @@
+// @flow
+
 import {setScore, setLives} from "./scorePanel";
 import {startButton} from "./startButton";
 
-export function generateColArr(len = 0, arr = []) {
+export function generateColArr(len: number) {
+    let arr = [];
     const colors = ["red", "green", "blue", "yellow"];
     const rand = () => Math.floor(Math.random() * 4);
     while (len >= 1) {
@@ -11,12 +14,12 @@ export function generateColArr(len = 0, arr = []) {
     return arr;
 }
 
-export function playSequence(arr = []) {
-    return new Promise(resolve => {
+export function playSequence(arr: Array<string>) {
+    return new Promise<Array<string>>(resolve => {
         let delay = 500;
         arr.map((col, i) => {
             setTimeout(() => {
-                document.querySelector(`.${col}`).click();
+                window.document.querySelector(`.${col}`).click();
                 if (i === arr.length - 1) {
                     resolve(arr);
                 }
@@ -30,8 +33,8 @@ function checkArray(arr = [], userArr = []) {
     return arr.toString() === userArr.toString();
 }
 
-export function userInput(arr = []) {
-    const buttons = document.querySelector(".buttons");
+export function userInput(arr: Array<string>) {
+    const buttons = window.document.querySelector(".buttons");
     let input = [];
     function userclickButton(e) {
         const {style} = e.target;

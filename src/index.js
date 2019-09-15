@@ -1,9 +1,10 @@
+// @flow
+
 import {generateColArr, playSequence, userInput} from "./helpers";
 import {setLives, setScore} from "./scorePanel";
 import {startButton} from "./startButton";
 
-const buttons = document.querySelector(".buttons");
-const body = document.querySelector("body");
+const buttons = window.document.querySelector(".buttons");
 
 function clickButton(e) {
     const {style} = e.target;
@@ -16,4 +17,4 @@ function clickButton(e) {
 
 buttons.addEventListener("click", clickButton);
 
-startButton(true);
+startButton();

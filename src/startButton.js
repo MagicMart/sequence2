@@ -1,6 +1,10 @@
+// @flow
+
 import {playSequence, generateColArr, userInput} from "./helpers";
 
-const startButtonContainer = document.querySelector(".start-button-container");
+const startButtonContainer = window.document.querySelector(
+    ".start-button-container"
+);
 const button = document.createElement("button");
 const text = document.createTextNode("Start");
 button.appendChild(text);
