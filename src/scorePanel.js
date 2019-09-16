@@ -15,8 +15,12 @@ export function setLives(l: number = 0) {
     return state.lives;
 }
 
-export function setScore(s: number = 0) {
-    state.score = state.score + s;
+export function setScore(s: number) {
+    if (s === 0) {
+        state.score = 0;
+    } else {
+        state.score = state.score + s;
+    }
     score.textContent = state.score;
     return state.score;
 }
