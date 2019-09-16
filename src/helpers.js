@@ -2,6 +2,7 @@
 
 import {setScore, setLives} from "./scorePanel";
 import {startButton} from "./startButton";
+import {endGame} from "./endGame";
 
 export function generateColArr(len: number) {
     let arr = [];
@@ -29,7 +30,7 @@ export function playSequence(arr: Array<string>) {
     });
 }
 
-function checkArray(arr, userArr) {
+function arraysTheSame(arr, userArr) {
     return arr.toString() === userArr.toString();
 }
 
@@ -39,9 +40,12 @@ export function userInput(arr: Array<string>) {
     function userclickButton(e) {
         if (e.target && e.target.nodeName === "BUTTON") {
             input = [...input, e.target.classList[1]];
-            if (checkArray(arr.slice(0, input.length), input) === false) {
+            if (arraysTheSame(arr.slice(0, input.length), input) === false) {
                 setLives(-1);
                 buttons.removeEventListener("click", userclickButton);
+                if (setLives() < 1) {
+                    endGame();
+                }
                 startButton();
             }
         }

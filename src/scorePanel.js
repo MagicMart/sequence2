@@ -8,9 +8,10 @@ const state = {
 const lives = window.document.querySelector(".lives");
 const score = window.document.querySelector(".score");
 
-export function setLives(l: number = 3) {
+export function setLives(l: number = 0) {
     state.lives = state.lives + l;
     lives.textContent = state.lives;
+
     return state.lives;
 }
 
