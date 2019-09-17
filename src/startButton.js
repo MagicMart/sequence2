@@ -2,21 +2,15 @@
 
 import {playSequence, generateColArr, userInput} from "./helpers";
 
-const startButtonContainer = window.document.querySelector(
-    ".start-button-container"
-);
-const button = document.createElement("button");
-const text = document.createTextNode("Start");
-button.appendChild(text);
-button.setAttribute("class", "start");
+const start = window.document.querySelector(".start");
 
 export function startButton() {
-    startButtonContainer.append(button);
+    start.style.visibility = "visible";
 
-    button.addEventListener(
+    start.addEventListener(
         "click",
         () => {
-            startButtonContainer.removeChild(button);
+            start.style.visibility = "hidden";
             playSequence(generateColArr(5)).then(userInput);
         },
         {
