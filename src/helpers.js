@@ -37,24 +37,24 @@ function arraysTheSame(arr, userArr) {
 export function userInput(arr: Array<string>) {
     const buttons = window.document.querySelector(".buttons");
     let input = [];
-    function userclickButton(e) {
+    const userclickButton = e => {
         if (e.target && e.target.nodeName === "BUTTON") {
             input = [...input, e.target.classList[1]];
             if (arraysTheSame(arr.slice(0, input.length), input) === false) {
                 setLives(-1);
                 buttons.removeEventListener("click", userclickButton);
                 if (setLives() < 1) {
-                    endGame();
+                    return endGame();
                 }
-                startButton();
+                return startButton();
             }
         }
         if (input.length === arr.length) {
             setScore(5);
             buttons.removeEventListener("click", userclickButton);
-            startButton();
+            return startButton();
         }
-    }
+    };
 
     buttons.addEventListener("click", userclickButton);
 }

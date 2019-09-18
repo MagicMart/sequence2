@@ -11,6 +11,7 @@ export function startButton() {
         "click",
         () => {
             start.style.visibility = "hidden";
+            console.log("start button clicked");
             playSequence(generateColArr(5)).then(userInput);
         },
         {

@@ -1,6 +1,7 @@
 // @flow
 
 import {setScore, setLives} from "./scorePanel";
+import {startButton} from "./startButton";
 const modal = window.document.querySelector(".modal");
 const close = window.document.querySelector(".close");
 
@@ -13,4 +14,5 @@ function closeNReset() {
 export function endGame() {
     modal.style.display = "initial";
     close.addEventListener("click", closeNReset, {once: true});
+    startButton();
 }
