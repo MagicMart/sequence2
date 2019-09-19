@@ -16,11 +16,15 @@ export function setLives(l: number = 0) {
 }
 
 export function setScore(s?: number) {
-    if (s === 0) {
-        state.score = 0;
-    } else if (s !== undefined) {
-        state.score = state.score + s;
+    switch (s) {
+        case undefined:
+            return state.score;
+        case 0:
+            state.score = 0;
+            break;
+        default:
+            state.score += s;
     }
+
     score.textContent = state.score;
-    return state.score;
 }
