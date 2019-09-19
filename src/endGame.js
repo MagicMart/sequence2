@@ -4,6 +4,7 @@ import {setScore, setLives} from "./scorePanel";
 import {startButton} from "./startButton";
 const modal = window.document.querySelector(".modal");
 const close = window.document.querySelector(".close");
+const endMessage = window.document.querySelector(".end-message");
 
 function closeNReset() {
     modal.style.display = "none";
@@ -13,6 +14,7 @@ function closeNReset() {
 
 export function endGame() {
     modal.style.display = "initial";
+    endMessage.textContent = "End of Game: You scored: " + setScore();
     close.addEventListener("click", closeNReset, {once: true});
     startButton();
 }

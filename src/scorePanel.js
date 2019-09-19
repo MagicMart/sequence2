@@ -15,10 +15,10 @@ export function setLives(l: number = 0) {
     return state.lives;
 }
 
-export function setScore(s: number) {
+export function setScore(s?: number) {
     if (s === 0) {
         state.score = 0;
-    } else {
+    } else if (s !== undefined) {
         state.score = state.score + s;
     }
     score.textContent = state.score;

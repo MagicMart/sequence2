@@ -9,7 +9,7 @@
     "scripts": {
         "clean": "rm dist/*",
         "dev": "parcel index.html",
-        "build": "parcel build index.html"
+        "build": "parcel build index.html --no-source-maps --experimental-scope-hoisting"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.3",
