@@ -45,8 +45,9 @@ export function userInput(arr: Array<string>) {
                 buttons.removeEventListener("click", userclickButton);
                 if (setLives() < 1) {
                     return endGame();
+                } else {
+                    return startButton();
                 }
-                return startButton();
             }
         }
         if (input.length === arr.length) {
