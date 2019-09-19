@@ -4,7 +4,7 @@ import {playSequence, generateColArr, userInput} from "./helpers";
 
 const start = window.document.querySelector(".start");
 
-export function startButton() {
+export default function startButton() {
     start.style.visibility = "visible";
 
     start.addEventListener(

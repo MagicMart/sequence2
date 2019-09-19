@@ -1,7 +1,7 @@
 // @flow
 
 import {setScore, setLives} from "./scorePanel";
-import {startButton} from "./startButton";
+import startButton from "./startButton";
 const modal = window.document.querySelector(".modal");
 const close = window.document.querySelector(".close");
 const endMessage = window.document.querySelector(".end-message");
@@ -12,7 +12,7 @@ function closeNReset() {
     setLives(3);
 }
 
-export function endGame() {
+export default function endGame() {
     modal.style.display = "initial";
     endMessage.textContent = "End of Game: You scored: " + setScore();
     close.addEventListener("click", closeNReset, {once: true});

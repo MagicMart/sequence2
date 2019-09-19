@@ -1,8 +1,8 @@
 // @flow
 
 import {setScore, setLives} from "./scorePanel";
-import {startButton} from "./startButton";
-import {endGame} from "./endGame";
+import startButton from "./startButton";
+import endGame from "./endGame";
 
 export function generateColArr(len: number) {
     let arr = [];

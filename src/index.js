@@ -1,6 +1,6 @@
 // @flow
 
-import {startButton} from "./startButton";
+import startButton from "./startButton";
 
 const synth = new window.Tone.Synth().toMaster();
 
