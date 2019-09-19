@@ -1,9 +1,8 @@
 // @flow
 
 import {startButton} from "./startButton";
-import Tone from "tone";
 
-const synth = new Tone.Synth().toMaster();
+const synth = new window.Tone.Synth().toMaster();
 
 const buttons = window.document.querySelector(".buttons");
 
