@@ -40,6 +40,7 @@ export function userInput(arr: Array<string>) {
     const userclickButton = e => {
         if (e.target && e.target.nodeName === "BUTTON") {
             input = [...input, e.target.classList[1]];
+            // if the input doesn't match arr of the same length, take away a life
             if (arraysTheSame(arr.slice(0, input.length), input) === false) {
                 setLives(-1);
                 buttons.removeEventListener("click", userclickButton);
@@ -48,12 +49,12 @@ export function userInput(arr: Array<string>) {
                 } else {
                     return startButton();
                 }
+            } else if (input.length === arr.length) {
+                // the user matched the sequence
+                setScore(5);
+                buttons.removeEventListener("click", userclickButton);
+                return startButton();
             }
-        }
-        if (input.length === arr.length) {
-            setScore(5);
-            buttons.removeEventListener("click", userclickButton);
-            return startButton();
         }
     };
 
