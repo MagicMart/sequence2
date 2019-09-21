@@ -1,16 +1,17 @@
 // @flow
 
 import startButton from "./startButton";
+import {colors} from "../utils/buttonColors";
 
 const synth = new window.Tone.Synth().toMaster();
 
 const buttons = window.document.querySelector(".buttons");
 
 const colourSounds = {
-    red: "C4",
-    green: "E4",
-    blue: "F4",
-    yellow: "G4"
+    [colors[0]]: "C4",
+    [colors[1]]: "E4",
+    [colors[2]]: "F4",
+    [colors[3]]: "G4"
 };
 
 function clickButton(e) {
