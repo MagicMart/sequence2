@@ -3,10 +3,11 @@
 import {setScore, setLives} from "./scorePanel";
 import startButton from "./startButton";
 import endGame from "./endGame";
+import {colors} from "../utils/buttonColors";
 
 export function generateColArr(len: number) {
     let arr = [];
-    const colors = ["red", "green", "blue", "yellow"];
+
     const rand = () => Math.floor(Math.random() * 4);
     while (len >= 1) {
         arr = [colors[rand()], ...arr];
@@ -39,7 +40,11 @@ export function userInput(arr: Array<string>) {
     let input = [];
     const userclickButton = e => {
         if (e.target && e.target.nodeName === "BUTTON") {
-            input = [...input, e.target.classList[1]];
+            const buttonColor = e.target.classList[1];
+            if (colors.includes(buttonColor) === false) {
+                return;
+            }
+            input = [...input, buttonColor];
             // if the input doesn't match arr of the same length, take away a life
             if (arraysTheSame(arr.slice(0, input.length), input) === false) {
                 setLives(-1);
