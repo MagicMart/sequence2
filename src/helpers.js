@@ -19,7 +19,7 @@ export function generateColArr(len: number) {
 export function playSequence(arr: Array<string>) {
     return new Promise<Array<string>>(resolve => {
         let delay = 500;
-        arr.map((col, i) => {
+        arr.forEach((col, i) => {
             setTimeout(() => {
                 window.document.querySelector(`.${col}`).click();
                 if (i === arr.length - 1) {
