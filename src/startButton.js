@@ -1,6 +1,6 @@
 // @flow
 
-import {playSequence, generateColArr, userInput} from "./helpers";
+import {playSequence, generateColArr, userInput} from "./playSequence";
 
 const start = window.document.querySelector(".start");
 
