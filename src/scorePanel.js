@@ -1,30 +1,22 @@
 // @flow
 
-let state = {
-    score: 0,
-    lives: 3
-};
+import endGame from "./endGame";
+import startButton from "./startButton";
 
-const lives = window.document.querySelector(".lives");
-const score = window.document.querySelector(".score");
-
-export function setLives(l: number = 0) {
-    state = {...state, lives: state.lives + l};
-    lives.textContent = state.lives;
-
-    return state.lives;
-}
-
-export function setScore(s?: number) {
-    switch (s) {
-        case undefined:
-            return state.score;
-        case 0:
-            state = {...state, score: 0};
-            break;
-        default:
-            state = {...state, score: (state.score += s)};
+export default function scorePanel({
+    score,
+    lives
+}: {
+    score: number,
+    lives: number
+}) {
+    const livesNode = window.document.querySelector(".lives");
+    const scoreNode = window.document.querySelector(".score");
+    livesNode.textContent = lives;
+    scoreNode.textContent = score;
+    if (lives === 0) {
+        endGame({score});
+    } else {
+        startButton({len: 5, score, lives});
     }
-
-    score.textContent = state.score;
 }

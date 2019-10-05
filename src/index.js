@@ -26,4 +26,4 @@ function clickButton(e) {
 
 buttons.addEventListener("click", clickButton);
 
-startButton();
+startButton({len: 5, score: 0, lives: 3});
