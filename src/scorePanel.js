@@ -13,7 +13,7 @@ export default function scorePanel({
     const livesNode = window.document.querySelector(".lives");
     const scoreNode = window.document.querySelector(".score");
     livesNode.textContent = lives;
-    scoreNode.textContent = score;
+    scoreNode.textContent = String(score).padStart(3, "0");
     if (lives === 0) {
         endGame({score});
     } else {

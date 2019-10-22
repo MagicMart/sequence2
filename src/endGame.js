@@ -10,7 +10,7 @@ function closeNReset() {
     const scoreNode = window.document.querySelector(".score");
     modal.style.display = "none";
     livesNode.textContent = "3";
-    scoreNode.textContent = "0";
+    scoreNode.textContent = "000";
 }
 
 export default function endGame({score}: {score: number}) {
