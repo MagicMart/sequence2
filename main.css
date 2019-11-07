@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-size: 16px;
 }
 *,
 *:before,
@@ -17,7 +18,7 @@ body {
         "Segoe UI Symbol";
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 1.25rem;
     background: #e5e5cf;
 }
 
@@ -36,7 +37,9 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    font-weight: 700;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -45,15 +48,15 @@ body {
 
 /* The Close Button */
 .close {
-    color: #aaa;
+    color: rgb(27, 23, 23);
     float: right;
-    font-size: 28px;
+    font-size: 48px;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
 }
@@ -117,5 +120,5 @@ body {
 }
 
 .yellow {
-    background: yellow;
+    background: #ffff00;
 }
