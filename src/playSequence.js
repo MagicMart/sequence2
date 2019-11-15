@@ -2,15 +2,13 @@
 
 import {colors} from "../utils/buttonColors";
 
-export function generateColArr({
-    len,
-    score,
-    lives
-}: {
+type PropsGCA = {
     len: number,
     score: number,
     lives: number
-}) {
+};
+
+export function generateColArr({len, score, lives}: PropsGCA) {
     let arr = [];
 
     const rand = () => Math.floor(Math.random() * 4);
@@ -21,15 +19,13 @@ export function generateColArr({
     return {len, score, lives, arr};
 }
 
-export function playSequence({
-    score,
-    lives,
-    arr
-}: {
+type Props = {
     score: number,
     lives: number,
     arr: Array<string>
-}) {
+};
+
+export function playSequence({score, lives, arr}: Props) {
     return new Promise<Object>(resolve => {
         let delay = 500;
         arr.forEach((col, i) => {
@@ -48,15 +44,7 @@ function arraysTheSame(arr, userArr) {
     return arr.toString() === userArr.toString();
 }
 
-export function userInput({
-    score,
-    lives,
-    arr
-}: {
-    score: number,
-    lives: number,
-    arr: Array<string>
-}) {
+export function userInput({score, lives, arr}: Props) {
     return new Promise<Object>(resolve => {
         const buttons = window.document.querySelector(".buttons");
         let input = [];
