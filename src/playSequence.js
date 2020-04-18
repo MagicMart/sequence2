@@ -9,13 +9,8 @@ type PropsGCA = {
 };
 
 export function generateColArr({len, score, lives}: PropsGCA) {
-    let arr = [];
-
-    const rand = () => Math.floor(Math.random() * 4);
-    while (len >= 1) {
-        arr = [colors[rand()], ...arr];
-        len -= 1;
-    }
+    const random = (): number => Math.floor(Math.random() * 4);
+    const arr: Array<string> = Array(len).fill(random).map(fn => colors[fn()]);
     return {len, score, lives, arr};
 }
 
