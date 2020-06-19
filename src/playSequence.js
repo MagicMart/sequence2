@@ -44,23 +44,23 @@ export function userInput({score, lives, arr}: Props) {
         const buttons = window.document.querySelector(".buttons");
         let input = [];
         const userclickButton = e => {
-            if (e.target && e.target.nodeName === "BUTTON") {
-                const buttonColor = e.target.classList[1];
-                if (colors.includes(buttonColor) === false) {
-                    return;
-                }
-                input = [...input, buttonColor];
-                if (
-                    arraysTheSame(arr.slice(0, input.length), input) === false
-                ) {
-                    buttons.removeEventListener("click", userclickButton);
-                    resolve({score, lives: lives - 1});
-                } else if (input.length === arr.length) {
-                    // the user matched the sequence
-                    buttons.removeEventListener("click", userclickButton);
-                    resolve({score: score + 5, lives});
-                }
+            if (!e.target || e.target.nodeName !== "BUTTON") return;
+           
+            const buttonColor = e.target.classList[1];
+            if (colors.includes(buttonColor) === false) return;
+            
+            input = [...input, buttonColor];
+            if (
+                arraysTheSame(arr.slice(0, input.length), input) === false
+            ) {
+                buttons.removeEventListener("click", userclickButton);
+                resolve({score, lives: lives - 1});
+            } else if (input.length === arr.length) {
+                // the user matched the sequence
+                buttons.removeEventListener("click", userclickButton);
+                resolve({score: score + 5, lives});
             }
+            
         };
 
         buttons.addEventListener("click", userclickButton);
