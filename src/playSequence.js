@@ -8,7 +8,7 @@ type PropsGCA = {
     lives: number
 };
 
-export function generateColArr({len, score, lives}: PropsGCA) {
+export function randomColourSequence({len, score, lives}: PropsGCA) {
     const random = (): number => Math.floor(Math.random() * 4);
     const arr: Array<string> = Array(len).fill(random).map(fn => colors[fn()]);
     return {len, score, lives, arr};
@@ -39,11 +39,11 @@ function arraysTheSame(arr, userArr) {
     return arr.toString() === userArr.toString();
 }
 
-export function userInput({score, lives, arr}: Props) {
+export function listenForUserResponse({score, lives, arr}: Props) {
     return new Promise<Object>(resolve => {
         const buttons = window.document.querySelector(".buttons");
         let input = [];
-        const userclickButton = e => {
+        const doTheyFollow = e => {
             if (!e.target || e.target.nodeName !== "BUTTON") return;
            
             const buttonColor = e.target.classList[1];
@@ -53,16 +53,16 @@ export function userInput({score, lives, arr}: Props) {
             if (
                 arraysTheSame(arr.slice(0, input.length), input) === false
             ) {
-                buttons.removeEventListener("click", userclickButton);
+                buttons.removeEventListener("click", doTheyFollow);
                 resolve({score, lives: lives - 1});
             } else if (input.length === arr.length) {
                 // the user matched the sequence
-                buttons.removeEventListener("click", userclickButton);
+                buttons.removeEventListener("click", doTheyFollow);
                 resolve({score: score + 5, lives});
             }
             
         };
 
-        buttons.addEventListener("click", userclickButton);
+        buttons.addEventListener("click", doTheyFollow);
     });
 }
