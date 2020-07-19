@@ -43,7 +43,7 @@ export function listenForUserResponse({score, lives, arr}: Props) {
     return new Promise<Object>(resolve => {
         const buttons = window.document.querySelector(".buttons");
         let input = [];
-        const doTheyFollow = e => {
+        const evaluateResponse = e => {
             if (!e.target || e.target.nodeName !== "BUTTON") return;
            
             const buttonColor = e.target.classList[1];
@@ -53,16 +53,16 @@ export function listenForUserResponse({score, lives, arr}: Props) {
             if (
                 arraysTheSame(arr.slice(0, input.length), input) === false
             ) {
-                buttons.removeEventListener("click", doTheyFollow);
+                buttons.removeEventListener("click", evaluateResponse);
                 resolve({score, lives: lives - 1});
             } else if (input.length === arr.length) {
                 // the user matched the sequence
-                buttons.removeEventListener("click", doTheyFollow);
+                buttons.removeEventListener("click", evaluateResponse);
                 resolve({score: score + 5, lives});
             }
             
         };
 
-        buttons.addEventListener("click", doTheyFollow);
+        buttons.addEventListener("click", evaluateResponse);
     });
 }
