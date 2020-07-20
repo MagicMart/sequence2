@@ -35,8 +35,8 @@ export function playSequence({score, lives, arr}: Props) {
     });
 }
 
-function arraysTheSame(arr, userArr) {
-    return arr.toString() === userArr.toString();
+function compareArrays(x, y): boolean {
+    return x.toString() === y.toString();
 }
 
 export function listenForUserResponse({score, lives, arr}: Props) {
@@ -51,7 +51,7 @@ export function listenForUserResponse({score, lives, arr}: Props) {
             
             input = [...input, buttonColor];
             if (
-                arraysTheSame(arr.slice(0, input.length), input) === false
+                compareArrays(arr.slice(0, input.length), input) === false
             ) {
                 buttons.removeEventListener("click", evaluateResponse);
                 resolve({score, lives: lives - 1});
