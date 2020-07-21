@@ -47,8 +47,9 @@ export function listenForResponse({score, lives, arr}: Props) {
             if (colors.includes(buttonColor) === false) return;
             
             clicks += 1;
+            const sequenceColor = arr[clicks - 1];
             // incorrect choice
-            if (arr[clicks - 1] !== buttonColor) {
+            if (sequenceColor !== buttonColor) {
                 buttons.removeEventListener("click", evaluateResponse);
                 resolve({score, lives: lives - 1});
             } 
