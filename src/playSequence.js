@@ -35,28 +35,25 @@ export function playSequence({score, lives, arr}: Props) {
     });
 }
 
-function compareArrays(x, y): boolean {
-    return x.toString() === y.toString();
-}
 
-export function listenForUserResponse({score, lives, arr}: Props) {
+export function listenForResponse({score, lives, arr}: Props) {
     return new Promise<Object>(resolve => {
         const buttons = window.document.querySelector(".buttons");
-        let input = [];
+        let clicks = 0;
         const evaluateResponse = e => {
             if (!e.target || e.target.nodeName !== "BUTTON") return;
            
             const buttonColor = e.target.classList[1];
             if (colors.includes(buttonColor) === false) return;
             
-            input = [...input, buttonColor];
-            if (
-                compareArrays(arr.slice(0, input.length), input) === false
-            ) {
+            clicks += 1;
+            // incorrect choice
+            if (arr[clicks - 1] !== buttonColor) {
                 buttons.removeEventListener("click", evaluateResponse);
                 resolve({score, lives: lives - 1});
-            } else if (input.length === arr.length) {
-                // the user matched the sequence
+            } 
+            // the user matched the sequence
+            if (clicks === arr.length) {
                 buttons.removeEventListener("click", evaluateResponse);
                 resolve({score: score + 5, lives});
             }

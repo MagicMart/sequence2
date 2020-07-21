@@ -1,6 +1,6 @@
 // @flow
 
-import {playSequence, randomColourSequence, listenForUserResponse} from "./playSequence";
+import {playSequence, randomColourSequence, listenForResponse} from "./playSequence";
 import scorePanel from "./scorePanel";
 
 const start = window.document.querySelector(".start");
@@ -19,7 +19,7 @@ export default function startButton({len, score, lives}: Props) {
         () => {
             start.style.visibility = "hidden";
             playSequence(randomColourSequence({len, score, lives}))
-                .then(listenForUserResponse)
+                .then(listenForResponse)
                 .then(scorePanel);
         },
         {
