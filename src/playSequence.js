@@ -40,7 +40,8 @@ export function listenForResponse({score, lives, arr}: Props) {
     return new Promise<Object>(resolve => {
         const buttons = window.document.querySelector(".buttons");
         let clicks = 0;
-        const evaluateResponse = e => {
+
+        buttons.addEventListener("click", function evaluateResponse(e) {
             if (!e.target || e.target.nodeName !== "BUTTON") return;
            
             const buttonColor = e.target.classList[1];
@@ -58,9 +59,6 @@ export function listenForResponse({score, lives, arr}: Props) {
                 buttons.removeEventListener("click", evaluateResponse);
                 resolve({score: score + 5, lives});
             }
-            
-        };
-
-        buttons.addEventListener("click", evaluateResponse);
+        });
     });
 }
