@@ -13,9 +13,9 @@ function closeNReset() {
     scoreNode.textContent = "000";
 }
 
-export default function endGame({score}: {score: number}) {
+export default function endGame({ score }: { score: number }) {
     modal.style.display = "initial";
     endMessage.textContent = "End of Game: You scored: " + String(score);
-    close.addEventListener("click", closeNReset, {once: true});
-    startButton({len: 5, score: 0, lives: 3});
+    close.addEventListener("click", closeNReset, { once: true });
+    startButton({ len: 5, score: 0, lives: 3 });
 }
