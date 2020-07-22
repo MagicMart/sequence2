@@ -9,9 +9,9 @@ const buttons = window.document.querySelector(".buttons");
 
 const colourSounds = {
     [colors[0]]: "C4",
-    [colors[1]]: "E4",
-    [colors[2]]: "F4",
-    [colors[3]]: "G4",
+    [colors[1]]: "D4",
+    [colors[2]]: "E4",
+    [colors[3]]: "F4",
 };
 
 function clickButton(e) {
