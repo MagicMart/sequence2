@@ -41,7 +41,7 @@ export function playSequence({ score, lives, arr }: PlaySequence) {
     });
 }
 
-export function listenForResponse({ score, lives, arr }: Props) {
+export function listenForResponse({ score, lives, arr }: PlaySequence) {
     return new Promise<Object>((resolve) => {
         const buttons = window.document.querySelector(".buttons");
         let clicks = 0;
