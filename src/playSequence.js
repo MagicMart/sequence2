@@ -2,13 +2,17 @@
 
 import { colors } from "../utils/buttonColors";
 
-type PropsGCA = {
+type RandomColourSequence = {
     len: number,
     score: number,
     lives: number,
 };
 
-export function randomColourSequence({ len, score, lives }: PropsGCA) {
+export function randomColourSequence({
+    len,
+    score,
+    lives,
+}: RandomColourSequence) {
     const random = (): number => Math.floor(Math.random() * 4);
     const arr: Array<string> = Array(len)
         .fill(random)
@@ -16,13 +20,13 @@ export function randomColourSequence({ len, score, lives }: PropsGCA) {
     return { len, score, lives, arr };
 }
 
-type Props = {
+type PlaySequence = {
     score: number,
     lives: number,
     arr: Array<string>,
 };
 
-export function playSequence({ score, lives, arr }: Props) {
+export function playSequence({ score, lives, arr }: PlaySequence) {
     return new Promise<Object>((resolve) => {
         let delay = 500;
         arr.forEach((col, i) => {
